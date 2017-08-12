@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation  Test verifies that search produces relevant results
 
-Library  Selenium2Library
 Resource  ../Resources/Amazon.robot
 
 Test Setup  Open Home Page
