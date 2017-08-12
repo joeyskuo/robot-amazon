@@ -1,11 +1,15 @@
 *** Settings ***
-Documentation  Test verifies that search produces relevant results
+Documentation  Test verifies that main banner product can be added to cart
 Library  Selenium2Library
 
 
 *** Test Cases ***
-Search results contain query in titles
-    open browser  http://www.amazon.com  chrome
+First banner product successfully added to cart
+    [Tags]  Banner
+    open browser  http://www.amazon.com  firefox
     wait until page contains  Your Amazon.com
-    input text  id=twotabsearchtextbox  Echo Show
-    click button  xpath=//div[@class='nav-search-submit nav-sprite']/input
+    click element  id=gw-desktop-herotator
+    page should contain  Add to Cart
+    click button  Add to Cart
+    page should contain  1 item added to Cart
+    close browser
